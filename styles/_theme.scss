@@ -1,0 +1,580 @@
+@import '../globalStylesheet.css';
+
+.axil-columns{
+  justify-content: space-between;
+}
+
+/*====================
+Service Styles 
+======================*/
+.axil-service {
+    margin-top: 60px;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service {
+      margin-top: 30px;
+    }
+  }
+  
+  /*---------------------------
+      Single Service  
+  ---------------------------*/
+  .axil-service {
+    position: relative;
+    background: #ffffff;
+
+    &:hover{
+        &::after{
+           
+            opacity: 1;
+        }
+    }
+
+    &::after{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 1.5rem;
+        left: -1.5rem;
+        border: 4px solid var(--wp--preset--color--contrast);
+        position: absolute;
+        opacity: 0;
+        z-index: -3;
+        transition: opacity 0.2s ease-in-out;
+        border-radius: 2px;
+        transform: translateZ(-100px);
+        filter: blur(0.5px);
+    }
+
+
+    & .icon-container{
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 60px;
+      aspect-ratio: 1;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      border-radius: 50%;
+      transform:translateZ(50px);
+    }
+
+
+
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service {
+      background: #f7f7f7;
+    }
+  }
+  .axil-service:hover {
+    background: transparent;
+  }
+  .axil-service::before {
+    width: 92%;
+    height: 92%;
+    left: -20px;
+    bottom: -20px;
+    background: rgba(0, 2, 72, 0.1);
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: rotateY(-10deg);
+    filter: blur(50px);
+    opacity: 1;
+    transition: all 0.7s;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service::before {
+      display: none;
+    }
+  }
+  .axil-service .inner {
+    padding-top: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 60px;
+    position: relative;
+    background-color: #ffffff;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner {
+      padding: 30px 20px;
+    }
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .axil-service .inner {
+      padding: 34px 20px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service .inner {
+      padding: 25px 15px;
+    }
+  }
+  .axil-service .inner::after {
+    background: #ffffff;
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    -webkit-transform: perspective(500px) rotateY(-5deg);
+    transform: perspective(500px) rotateY(-5deg);
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner::after {
+      background: #f7f7f7;
+      transform: perspective(0) rotateY(0deg);
+    }
+  }
+  .axil-service .inner::before {
+    -webkit-transform: perspective(500px) rotateY(-5deg);
+    transform: perspective(500px) rotateY(-5deg);
+    position: absolute;
+    width: calc(100% - 5px);
+    height: calc(100% - 10px);
+    top: 32px;
+    content: "";
+    border: 4px solid #000345;
+    z-index: -1;
+    right: 32px;
+    transition: all 0.4s;
+    opacity: 1;
+    visibility: hidden;
+    box-shadow: 0 0 1px transparent;
+    transition-delay: 0.2s;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .axil-service .inner::before {
+      width: calc(100% - 15px);
+      height: calc(100% - 15px);
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service .inner::before {
+      width: calc(100% - 15px);
+      height: calc(100% - 15px);
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner::before {
+      width: calc(100% - 15px);
+      height: calc(100% - 15px);
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner::before {
+      display: none;
+    }
+  }
+  .axil-service .inner .icon {
+    position: relative;
+    height: 100px;
+    width: 120px;
+    z-index: 2;
+    margin: 0 auto;
+    -webkit-perspective: 100px;
+    perspective: 100px;
+    margin-bottom: 45px;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .axil-service .inner .icon {
+      margin-bottom: 7px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service .inner .icon {
+      margin-bottom: 7px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner .icon {
+      margin-bottom: 7px;
+    }
+  }
+  .axil-service .inner .icon::before {
+    background: linear-gradient(180deg, #EBFFFD 0%, #EFEEFA 100%);
+    position: absolute;
+    content: "";
+    right: 44%;
+    top: -15%;
+    height: 100%;
+    width: 88px;
+    z-index: -1;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transform: rotateY(-5deg);
+    box-shadow: 0 0 1px transparent;
+  }
+  .axil-service .inner .icon.gradient-color-02::before {
+    background: linear-gradient(180deg, #FEF7E2 0%, #EEEEFD 100%);
+  }
+  .axil-service .inner .icon.gradient-color-02 .icon-inner {
+    background: #5BCC9F;
+  }
+  .axil-service .inner .icon.gradient-color-03::before {
+    background: linear-gradient(134.74deg, #D6FFFC 0%, #FAE7E4 100%);
+  }
+  .axil-service .inner .icon.gradient-color-03 .icon-inner {
+    background: #49CCFF;
+  }
+  .axil-service .inner .icon.gradient-color-04::before {
+    background: linear-gradient(180deg, #F7F6FF 0%, #FEEFEB 100%);
+  }
+  .axil-service .inner .icon.gradient-color-04 .icon-inner {
+    background: #FFCD3E;
+  }
+  .axil-service .inner .icon.gradient-color-05::before {
+    background: linear-gradient(180deg, #F7F6FF 0%, #FEEFEB 100%);
+  }
+  .axil-service .inner .icon.gradient-color-05 .icon-inner {
+    background: #FF8A5B;
+  }
+  .axil-service .inner .icon.gradient-color-06::before {
+    background: linear-gradient(180deg, #EBFFFD 0%, #EFEEFA 100%);
+  }
+  .axil-service .inner .icon.gradient-color-06 .icon-inner {
+    background: #007AFF;
+  }
+  .axil-service .inner .icon .icon-inner {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    text-align: center;
+    line-height: 58px;
+    border-radius: 100%;
+    background: #702FFF;
+    left: 32px;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .axil-service .inner .icon .icon-inner > img {
+    position: absolute;
+    top: 0;
+    right: -5px;
+  }
+  .axil-service .inner .icon .icon-inner .text {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .axil-service .inner .content h4.title {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner .content h4.title {
+      margin-bottom: 15px;
+    }
+  }
+  .axil-service .inner .content h4.title a {
+    text-decoration: none;
+  }
+  .axil-service .inner .content p {
+    margin-bottom: 30px;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service .inner .content p {
+      margin-bottom: 15px;
+    }
+  }
+  .axil-service .inner .content a.axil-button {
+    background: transparent;
+    height: auto;
+    line-height: inherit;
+    position: relative;
+    padding: 0;
+  }
+  .axil-service .inner .content a.axil-button::after {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #702FFF;
+    content: "";
+    left: 0;
+  }
+  .axil-service.active::before {
+    opacity: 1;
+  }
+  .axil-service.active .inner::after {
+    opacity: 1;
+  }
+  .axil-service.active .inner::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .axil-service.active .inner .content a.axil-button {
+    color: #702FFF;
+  }
+  .axil-service.active .inner .content a.axil-button::after {
+    width: 100%;
+  }
+  .axil-service.service-bg-gray .inner {
+    background: #FAFAFB;
+  }
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .axil-service.service-bg-gray .inner {
+      padding: 44px 25px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service.service-bg-gray .inner {
+      padding: 44px 25px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service.service-bg-gray .inner {
+      padding: 30px 10px;
+    }
+  }
+  .axil-service.service-bg-gray:hover .inner {
+    background: #ffffff;
+  }
+  .axil-service.service-bg-gray.active .inner {
+    background: #ffffff;
+  }
+  .axil-service.space-to-top {
+    margin-top: -100px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service.space-to-top {
+      margin-top: 60px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service.space-to-top {
+      margin-top: 30px;
+    }
+  }
+  .axil-service.space-to-top2 {
+    margin-top: -200px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .axil-service.space-to-top2 {
+      margin-top: 60px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service.space-to-top2 {
+      margin-top: 30px;
+    }
+  }
+  .axil-service.text-start .inner .icon {
+    margin: inherit;
+    margin-bottom: 18px;
+    height: 80px;
+    width: 80px;
+  }
+  .axil-service.text-start .inner .icon::before {
+    right: -17px;
+    height: 100%;
+    width: 60px;
+  }
+  .axil-service.text-start .inner .icon .icon-inner {
+    left: 0;
+  }
+  .axil-service.text-start .inner a.axil-button {
+    padding: 0;
+  }
+  
+  @keyframes newanimation {
+    0% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 0.3;
+    }
+    20% {
+      opacity: 0.4;
+    }
+    25% {
+      opacity: 0.5;
+    }
+    30% {
+      opacity: 0.6;
+    }
+    40% {
+      opacity: 0.7;
+    }
+    45% {
+      opacity: 0.8;
+    }
+    66% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  /*------------------------------
+      Axil Service Style Two  
+  -------------------------------*/
+  .axil-service-two {
+    margin-top: 30px;
+  }
+  .axil-service-two .icon {
+    margin-bottom: 40px;
+  }
+  .axil-service-two .content h4.title {
+    margin-bottom: 20px;
+  }
+  
+  /*---------------------
+  Service Style Three  
+  ------------------------*/
+  .axil-service-style--3 .icon {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    text-align: center;
+    line-height: 62px;
+    border-radius: 100%;
+    background: #702FFF;
+    overflow: hidden;
+  }
+  .axil-service-style--3 .icon img {
+    position: absolute;
+    top: 0;
+    right: -5px;
+  }
+  .axil-service-style--3 .icon .text {
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .axil-service-style--3 .content {
+    padding-top: 40px;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service-style--3 .content {
+      padding-top: 20px;
+    }
+  }
+  .axil-service-style--3 .content .title {
+    margin-bottom: 20px;
+  }
+  @media only screen and (max-width: 767px) {
+    .axil-service-style--3 .content .title {
+      margin-bottom: 10px;
+    }
+  }
+  .axil-service-style--3 .content .title a {
+    text-decoration: none;
+  }
+  .axil-service-style--3.color-var--2 .icon {
+    background: #FF9166;
+  }
+  .axil-service-style--3.color-var--3 .icon {
+    background: #49CCFF;
+  }
+  .axil-service-style--3.color-var--4 .icon {
+    background: #FFCD3E;
+  }
+  .axil-service-style--3.color-var--5 .icon {
+    background: #5BCC9F;
+  }
+  
+  .axil-scroll-nav.navbar.navbar-example2.is-affixed .nav {
+    width: 100% !important;
+  }
+
+
+
+
+  .button-contrast{
+		& a{
+			background-color: var( --wp--preset--color--contrast);
+      color: #fff !important;
+      border-radius: 4rem;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      display: inline-block;
+      &:hover{
+        background-color: var( --wp--preset--color--accent-5);
+      }
+		}
+		
+	}
+
+
+  .wp-block-button:hover{
+    & .wp-block-button__link{
+      &.has-accent-3-background-color{
+        background-color: var( --wp--preset--color--accent-5) !important;
+      }
+    }
+  }
+
+
+  .has-contrast-background-color{
+
+    .wp-block-button:hover{
+      & .wp-block-button__link{
+        &.has-accent-3-background-color{
+          background-color: var( --wp--preset--color--accent-2) !important;
+          color: var( --wp--preset--color--contrast);
+        }
+      }
+    }
+
+  }
+
+
+
+  $accent4: #4e9e94;
+  .wp-block-button:hover{
+    & .wp-block-button__link{
+      &.has-accent-4-background-color{
+        background-color: darken($accent4, 5%) !important;
+        color:#fff;
+      }
+    }
+  }
+
+  .wp-block-button:hover{
+    & .wp-block-button__link{
+      &.has-accent-5-background-color{
+          background-color: var( --wp--preset--color--contrast) !important;
+      }
+    }
+  }
+
+  $accent6: #ff6880;
+  .wp-block-button:hover{
+    & .wp-block-button__link{
+      &.has-accent-6-background-color{
+          background-color: darken($accent6, 5%) !important;
+          color:#fff !important;
+      }
+    }
+  }
+
+
+
+
+  .axil-service{
+    .wp-block-button:hover{
+      & .wp-block-button__link{
+        &.has-accent-5-background-color{
+            background-color: var( --wp--preset--color--accent-3) !important;
+            // color: var( --wp--preset--color--accent-5) !important;
+        }
+      }
+    }
+  }
+
+
+
+  .wp-block-columns{
+    justify-content: space-between;
+  }

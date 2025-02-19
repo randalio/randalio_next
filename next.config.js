@@ -16,6 +16,11 @@ module.exports = withFaust({
     locales: ['en'],
     defaultLocale: 'en',
   },
+  experimental: {
+    fontLoaders: [
+      { loader: 'next/font/google' }
+    ],
+  },
   async headers() {
     return [{ source: '/:path*', headers: createSecureHeaders({
       xssProtection: false

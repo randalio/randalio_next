@@ -7,7 +7,7 @@ import single from './single';
 export default {
   category,
   tag,
-  'front-page': frontPage,
+  'front-page': page,
   page,
   single,
 };

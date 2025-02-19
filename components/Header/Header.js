@@ -16,11 +16,11 @@ export default function Header({
   return (
     <header className={cx('component')}>
       <SkipNavigationLink />
-        <Container>
-          <div className={cx('navbar')}>
+        <Container className={cx('is-layout-constrained')} >
+          <div className={cx('navbar', 'alignwide', 'is-layout-flex')}>
             <div className={cx('brand')}>
               <Link legacyBehavior href="/">
-                <a className={cx('title')}>{title}</a>
+                <a className={cx('title')}>{ title.replace(/&amp;/g, '&') }</a>
               </Link>
               {description && <p className={cx('description')}>{description}</p>}
             </div>

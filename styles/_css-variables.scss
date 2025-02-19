@@ -32,16 +32,22 @@
 	--wpe--border--extra-light: 1px solid var(--wpe--color--offwhite);
 
 	// Type.
-	--wpe--font-weight--light: 300;
+	--wpe--font-weight--light: 200;
 	--wpe--font-weight--medium: 400;
-	--wpe--font-weight--bold: 700;
+	--wpe--font-weight--bold: 900;
 
 	// Spacing.
-	--wpe--content--max-width: 620px;
+	--wpe--content--max-width: 100%;
 	--wpe--section--padding-y: 3rem;
-	--wpe--container--padding-x: 15px;
-	--wpe--container--max-width: 1000px;
+	--wpe--container--padding-x:0;
+	--wpe--container--max-width:100%;
 
 	// Shadows.
 	--wpe--shadow--large: 0 50px 120px -40px rgba(150, 150, 150, 0.2), 0 20px 60px -30px rgba(0, 0, 0, 0.5);
+
+	--wp--preset--font-family--system-font: var(--font-lato);
+	--wp--preset--font-family--lato: var(--font-lato);
+
+	--font-lato: 'Lato', sans-serif;
+
 }

@@ -28,24 +28,23 @@ export default function Component(props) {
   return (
     <>
       <SEO
-        title={siteTitle}
+        title={siteTitle.replace(/&amp;/g, '&')}
         description={siteDescription}
         imageUrl={featuredImage?.node?.sourceUrl}
       />
       <Header
-        title={siteTitle}
+        title={siteTitle.replace(/&amp;/g, '&')}
         description={siteDescription}
         menuItems={primaryMenu}
       />
       <Main>
         <>
-          <EntryHeader title={title} image={featuredImage?.node} />
           <Container>
             <ContentWrapper content={content} />
           </Container>
         </>
       </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
+      <Footer title={siteTitle.replace(/&amp;/g, '&')} menuItems={footerMenu} />
     </>
   );
 }

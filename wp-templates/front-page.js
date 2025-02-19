@@ -20,12 +20,13 @@ export default function Component() {
     data?.generalSettings;
   const primaryMenu = data?.headerMenuItems?.nodes ?? [];
   const footerMenu = data?.footerMenuItems?.nodes ?? [];
+  
 
   return (
     <>
-      <SEO title={siteTitle} description={siteDescription} />
+      <SEO title={siteTitle.replace(/&amp;/g, '&')} description={siteDescription} />
       <Header
-        title={siteTitle}
+        title={siteTitle.replace(/&amp;/g, '&')}
         description={siteDescription}
         menuItems={primaryMenu}
       />
@@ -38,7 +39,7 @@ export default function Component() {
           </div>
         </Container>
       </Main>
-      <Footer title={siteTitle} menuItems={footerMenu} />
+      <Footer title={siteTitle.replace(/&amp;/g, '&')} menuItems={footerMenu} />
     </>
   );
 }

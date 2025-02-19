@@ -1,9 +1,10 @@
 @import 'styles/breakpoints';
 
 .component {
-	color: var(--wpe--header--color);
-	background-color: var(--wpe--header--background-color);
-	position: relative;
+	color: var(--wp--preset--color--contrast);
+	// background-color: var(--wpe--header--background-color);
+	position: absolute;
+	width: 100%;
 	z-index: 2; // Pull dropdown menus to the foreground to sit above <Main />.
 }
 
@@ -17,7 +18,8 @@
 
 .brand {
 	font-weight: var(--wpe--font-weight--bold);
-	font-size: 1.6rem;
+	font-size: 2.2rem;
+	line-height: 1.1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -28,9 +30,11 @@
 }
 
 .description {
-	margin: .3rem 0 0 0;
-	font-size: 0.8rem;
+	margin: 0;
+	font-size: 0.9rem;
+	line-height: 1.5em;
 	opacity: 0.9;
+	font-weight: 400;
 }
 
 .nav-toggle {
