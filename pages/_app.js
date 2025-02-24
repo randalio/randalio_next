@@ -1,7 +1,5 @@
-// import { Lato } from '@next/font/google';
 import '../faust.config';
-import React from 'react';
-import {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { FaustProvider } from '@faustwp/core';
 import { WordPressBlocksProvider, fromThemeJson } from '@faustwp/blocks';
@@ -11,20 +9,16 @@ import { applyWPGlobalStyles } from '../wp-styles';
 import '../styles/global.scss';
 import '../public/scripts/vanilla-tilt.js';
 import '@faustwp/core/dist/css/toolbar.css';
+// Import Locomotive Scroll CSS here instead of in the hook
+import 'locomotive-scroll/dist/locomotive-scroll.css';
+import dynamic from 'next/dynamic';
 
-
-
-// const lato = Lato({
-//   subsets: ['latin'],
-//   weight: ['400', '700', '900'],
-//   style: ['normal', 'italic'],
-//   variable: '--font-lato',
-//   display: 'swap',
-// })
+// Import Layout with no SSR
+const Layout = dynamic(() => import('../components/Layout'), {
+  ssr: false
+});
 
 export default function MyApp({ Component, pageProps }) {
-
-  // In your app's initialization
   useEffect(() => {
     applyWPGlobalStyles()
       .then(styles => {
@@ -37,19 +31,17 @@ export default function MyApp({ Component, pageProps }) {
 
   const router = useRouter();
 
-
   return (
-    
-    <FaustProvider pageProps={pageProps} >
+    <FaustProvider pageProps={pageProps}>
       <WordPressBlocksProvider
         config={{
-          // blocks,
           theme: fromThemeJson(themeJson),
         }}
-        >
-        <Component {...pageProps} key={router.asPath} />
+      >
+        <Layout>
+          <Component {...pageProps} key={router.asPath} />
+        </Layout>
       </WordPressBlocksProvider>
     </FaustProvider>
-
   );
 }

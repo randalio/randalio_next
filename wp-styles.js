@@ -127,7 +127,7 @@ export async function applyWPGlobalStyles() {
       }
     } catch (fetchError) {
       //console.warn('Could not fetch from relative path, trying with full URL');
-      response = await fetch('https://next.randal.io/wp/wp-json/wp/v2/global-styles');
+      response = await fetch('https://source.randal.io/wp-json/wp/v2/global-styles');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

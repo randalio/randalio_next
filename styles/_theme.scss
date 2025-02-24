@@ -507,10 +507,14 @@ Service Styles
 	}
 
 
+
+  /* button accent color 3 (med purple) */
+  $accent3: #778DFD;
   .wp-block-button:hover{
     & .wp-block-button__link{
       &.has-accent-3-background-color{
-        background-color: var( --wp--preset--color--accent-5) !important;
+        background-color: darken($accent3, 5%) !important;
+        color:#fff;
       }
     }
   }

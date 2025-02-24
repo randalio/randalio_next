@@ -12,8 +12,8 @@ export default setConfig({
   plugins: [],
   experimentalToolbar: true,
   possibleTypes,
-  apiUrl: 'https://next.randal.io/wp/graphql',
-  siteUrl: 'https://next.randal.io/wp/',
+  apiUrl: 'https://source.randal.io/graphql',
+  siteUrl: 'https://source.randal.io/',
   scripts: [
     {
       src: `${process.env.NEXT_PUBLIC_SITE_URL}/scripts/vanilla-tilt.js`,
