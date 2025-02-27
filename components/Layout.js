@@ -1,4 +1,5 @@
 import { useLocomotiveScroll } from '../hooks/useLocomotiveScroll';
+import { useVanillaTilt } from '../hooks/useVanillaTilt';
 import dynamic from 'next/dynamic';
 
 const Layout = ({ children }) => {
@@ -15,6 +16,4 @@ const Layout = ({ children }) => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Layout), {
-  ssr: false
-});
+export default Layout; 

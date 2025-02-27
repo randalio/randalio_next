@@ -9,7 +9,6 @@ import { applyWPGlobalStyles } from '../wp-styles';
 import '../styles/global.scss';
 import '../public/scripts/vanilla-tilt.js';
 import '@faustwp/core/dist/css/toolbar.css';
-// Import Locomotive Scroll CSS here instead of in the hook
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import dynamic from 'next/dynamic';
 
@@ -19,17 +18,58 @@ const Layout = dynamic(() => import('../components/Layout'), {
 });
 
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  
+  // Apply WordPress styles
   useEffect(() => {
     applyWPGlobalStyles()
       .then(styles => {
-        console.log('Applied WordPress global styles:');
+        console.log('Applied WordPress global styles');
       })
       .catch(error => {
         console.error('Error applying styles:', error);
       });
   }, []);
 
-  const router = useRouter();
+  // Debug route changes
+  useEffect(() => {
+    const handleRouteChangeStart = (url) => {
+      console.log(`Route change starting to: ${url}`);
+    };
+    
+    const handleRouteChangeComplete = (url) => {
+      console.log(`Route change completed to: ${url}`);
+      // Notify components about the route change
+      window.dispatchEvent(new CustomEvent('routeChanged', { 
+        detail: { path: url } 
+      }));
+    };
+    
+    const handleBeforeHistoryChange = (url) => {
+      console.log(`Before history change to: ${url}`);
+    };
+    
+    const handleRouteChangeError = (err, url) => {
+      console.error(`Route change to ${url} failed:`, err);
+    };
+
+    // Register all router event handlers
+    router.events.on('routeChangeStart', handleRouteChangeStart);
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    router.events.on('beforeHistoryChange', handleBeforeHistoryChange);
+    router.events.on('routeChangeError', handleRouteChangeError);
+
+    return () => {
+      // Clean up event handlers
+      router.events.off('routeChangeStart', handleRouteChangeStart);
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+      router.events.off('beforeHistoryChange', handleBeforeHistoryChange);
+      router.events.off('routeChangeError', handleRouteChangeError);
+    };
+  }, [router]);
+  
+  // Log current route for debugging
+  console.log('Current path:', router.asPath);
 
   return (
     <FaustProvider pageProps={pageProps}>
@@ -39,6 +79,7 @@ export default function MyApp({ Component, pageProps }) {
         }}
       >
         <Layout>
+          {/* Key prop ensures component fully remounts on route change */}
           <Component {...pageProps} key={router.asPath} />
         </Layout>
       </WordPressBlocksProvider>

@@ -121,7 +121,7 @@ export async function applyWPGlobalStyles() {
     // Get the styles from WordPress
     let response;
     try {
-      response = await fetch('/wp-json/wp/v2/global-styles');
+      response = await fetch('https://source.randal.io/wp-json/wp/v2/global-styles');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
