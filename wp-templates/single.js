@@ -90,7 +90,7 @@ export default function Component(props) {
             author={author?.node?.name}
           />
           <Container>
-            <ContentWrapper content={content} />
+            <ContentWrapper content={content} className={'is-layout-constrained'}/>
           </Container>
         </>
       </Main>

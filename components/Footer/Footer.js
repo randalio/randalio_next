@@ -8,7 +8,7 @@ export default function Footer({ title, menuItems }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={cx('component')}>
+    <footer className={cx('component')} >
       <Container>
         <NavigationMenu menuItems={menuItems} />
         <p className={cx('copyright')}>{`${title} © ${year}. Powered by WordPress & Next.js.`}</p>

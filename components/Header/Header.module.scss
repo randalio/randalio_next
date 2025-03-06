@@ -14,6 +14,15 @@
 	flex-wrap: wrap;
 	padding: 3rem 0;
 	gap: 1rem;
+
+	padding-right: var(--wp--style--root--padding-right);
+  	padding-left: var(--wp--style--root--padding-left);
+
+	@media (min-width: $breakpoint-large){
+		padding-right: 0;
+  		padding-left:  0;
+	}
+
 }
 
 .brand {
@@ -65,6 +74,17 @@
 	display: none;
 	width: 100%;
 
+	background-color: var(--wpe--navigation-menu--background-color);
+	@media (max-width: $breakpoint-small){
+		background-color: #fff !important;
+		top: 7.5rem !important;
+		max-width: 300px;
+		left: unset !important;
+		right:1rem;
+		border-radius: 1rem;
+		box-shadow:  var(--wpe--shadow--large);
+	}
+
 	&.show {
 		display: block;
 	}
@@ -73,4 +93,15 @@
 		display: block;
 		width: auto;
 	}
+
+	@media (max-width: $breakpoint-small){
+		background-color: #fff;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		padding: 1rem 1rem;
+		z-index: 1;
+
+	}
+
 }

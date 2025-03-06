@@ -54,6 +54,10 @@ export function useLocomotiveScroll(start = true) {
         locomotiveScrollRef.current = new LocomotiveScroll({
           el: scrollRef.current,
           smooth: true,
+          smartphone: {
+            smooth: false
+          },
+          lerp: 0.1,
           // rest of your config
         });
         

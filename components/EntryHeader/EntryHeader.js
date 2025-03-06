@@ -8,15 +8,8 @@ export default function EntryHeader({ title, image, date, author, className }) {
   const hasText = title || date || author;
 
   return (
-    <div className={cx(['component', className])}>
-      {image && (
-        <FeaturedImage
-          image={image}
-          className={cx('image')}
-          priority
-        />
-      )}
-
+    <div className={cx(['component', 'is-style-section-4', className])}>
+     
       {hasText && (
         <div className={cx('text', { 'has-image': image })}>
           <Container>

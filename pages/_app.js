@@ -1,6 +1,7 @@
 import '../faust.config';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import { FaustProvider } from '@faustwp/core';
 import { WordPressBlocksProvider, fromThemeJson } from '@faustwp/blocks';
 import themeJson from '../../wp/wp-content/themes/twentytwentyfive/theme.json';
@@ -11,6 +12,11 @@ import '../public/scripts/vanilla-tilt.js';
 import '@faustwp/core/dist/css/toolbar.css';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import dynamic from 'next/dynamic';
+import ContactFormHandler from '../components/ContactForm7/ContactForm7';
+
+const GA_MEASUREMENT_ID = 'G-25G1BMKMBV';
+
+
 
 // Import Layout with no SSR
 const Layout = dynamic(() => import('../components/Layout'), {
@@ -67,12 +73,64 @@ export default function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeError', handleRouteChangeError);
     };
   }, [router]);
+
+
+  useEffect(() => {
+    // Additional debugging on page load
+    console.log('Page loaded, checking for contact form');
+    const form = document.querySelector('.wpcf7-form');
+    console.log('Form found:', !!form);
+  }, []);
+
+  useEffect(() => {
+    // Define gtag function
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    
+    // Track page views when the route changes
+    const handleRouteChange = (url) => {
+      if (window.gtag) {
+        window.gtag('event', 'page_view', {
+          page_path: url,
+        });
+      }
+    };
+    
+    // Subscribe to router events
+    router.events.on('routeChangeComplete', handleRouteChange);
+    
+    // Clean up
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router]);
   
   // Log current route for debugging
   console.log('Current path:', router.asPath);
 
   return (
     <FaustProvider pageProps={pageProps}>
+     {/* Google Analytics Script tags */}
+     <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <WordPressBlocksProvider
         config={{
           theme: fromThemeJson(themeJson),
@@ -81,6 +139,7 @@ export default function MyApp({ Component, pageProps }) {
         <Layout>
           {/* Key prop ensures component fully remounts on route change */}
           <Component {...pageProps} key={router.asPath} />
+          <ContactFormHandler />
         </Layout>
       </WordPressBlocksProvider>
     </FaustProvider>
